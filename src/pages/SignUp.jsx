@@ -21,12 +21,14 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
+  // react hook from
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  // signUp functionality
   const onSubmit = async (data) => {
     setLoading(true);
     const imageFile = { image: data?.image[0] };
@@ -52,6 +54,7 @@ const SignUp = () => {
                   role: "user",
                   badge: "bronze",
                 };
+                // posting info in db
                 axiosPublic
                   .post("/users", user)
                   .then((res) => {
@@ -85,11 +88,14 @@ const SignUp = () => {
     <div>
       <div className="min-h-screen bg-white">
         <div className="max-w-screen-xl mx-auto pt-10 md:pt-24 flex flex-col md:flex-row-reverse justify-center items-center gap-10">
+          {/* GIF */}
           <div className="flex-1">
             <img src={authGIF} alt="" />
           </div>
+          {/* form */}
           <div className="flex-1">
             <form onSubmit={handleSubmit(onSubmit)} className="w-2/3 mx-auto">
+              {/* name */}
               <input
                 {...register("name", { required: true })}
                 className="w-full h-11 outline-none px-5 bg-white border border-[#D0D0D0] rounded text-sm text-gray-800"
@@ -98,6 +104,7 @@ const SignUp = () => {
                 required
               />
 
+              {/* email */}
               <input
                 {...register("email", { required: true })}
                 className="w-full h-11 outline-none px-5 mt-4 bg-white border border-[#D0D0D0] rounded text-gray-800"
@@ -106,21 +113,21 @@ const SignUp = () => {
                 required
               />
 
+              {/* upload image */}
               <label
                 htmlFor="dropzone-file"
                 className="flex items-center px-3 py-3 mx-auto mt-4 text-center bg-white border border-dashed border-[#D0D0D0] rounded cursor-pointer"
               >
-                {/* <h2 className="mx-1 text-gray-400">Profile Photo</h2> */}
 
                 <input
                   {...register("image", { required: true })}
                   id="dropzone-file"
                   type="file"
-                  // className="hidden"
                   required
                 />
               </label>
 
+              {/* password */}
               <div className="relative">
                 <input
                   {...register("password", {
@@ -145,6 +152,7 @@ const SignUp = () => {
                 </div>
               </div>
 
+              {/* submit button */}
               <button className="btn w-full mt-4 border-none text-gray-700 bg-[#D1A054B3] hover:bg-[#D1A054B3] rounded">
                 {loading ? (
                   <ImSpinner9 className="animate-spin text-lg"></ImSpinner9>
@@ -153,6 +161,8 @@ const SignUp = () => {
                 )}
               </button>
             </form>
+
+            {/* social */}
             <div className="w-2/3 mx-auto">
               <div className="my-4 text-center">
                 <p>

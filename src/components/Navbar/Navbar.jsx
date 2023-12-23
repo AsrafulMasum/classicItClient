@@ -31,6 +31,7 @@ const Navbar = () => {
     <div className="w-full fixed bg-[#27485C] bg-opacity-90 z-50">
       <LayoutContainer>
         <div className="w-full navbar px-0">
+          {/* drawer */}
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-3"
@@ -52,10 +53,12 @@ const Navbar = () => {
               </svg>
             </label>
           </div>
+          {/* logo & name */}
           <div className="flex-1 flex items-center gap-4 px-2 mx-2 text-2xl text-white font-bold leading-none">
             <img className="w-12" src={logo} alt="LOGO" />
             <p>ProductsBD</p>
           </div>
+          {/* navLinks */}
           <div>
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal">
@@ -76,6 +79,7 @@ const Navbar = () => {
               )}
             </div>
           </div>
+
         </div>
       </LayoutContainer>
     </div>

@@ -5,6 +5,9 @@ import LogIn from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
+import Carts from "../pages/Carts";
+import PrivateRoute from "../Routes/PrivateRoutes";
+import ProductDetails from "../components/ProductDetails";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -19,6 +22,22 @@ const MainRoutes = createBrowserRouter([
       {
         path: "products",
         element: <Products></Products>,
+      },
+      {
+        path: "productDetails/:id",
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <PrivateRoute>
+            <Carts></Carts>
+          </PrivateRoute>
+        ),
       },
       {
         path: "logIn",
